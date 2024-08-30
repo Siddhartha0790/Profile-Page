@@ -1,7 +1,9 @@
 import React from 'react'
-
-export default function profilepage() {
+import { useState } from 'react'
+export default function profilepage(props) {
+    const [userPermission, setuserPermission] = useState(props.client)
   return (
+
     <div>
       <main class="profile my-md">
     <div class="container">
@@ -30,7 +32,9 @@ export default function profilepage() {
                   <a title="Personal Website" href="#" target="_blank"><i class="im im-globe"></i></a>
                 </li>
               </ul>
-              <a href="#" class="btn btn--sub btn--lg">View Research papers </a>
+              {userPermission == 'admin' && <a href="/adminrequest" class="btn btn--sub btn--lg">View Pending requests </a>}
+         
+           <a href="#" class="btn btn--sub btn--lg">View Research papers </a>
             </div>
           </div>
         </div>
